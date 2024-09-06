@@ -2,10 +2,10 @@ import time
 from collections import deque
 from typing import Any, Dict, Optional, Tuple, Type, Union
 
-import gym
+import gymnasium as gym
 import numpy as np
 import torch as th
-from gym import spaces
+from gymnasium import spaces
 from stable_baselines3.common import utils
 from stable_baselines3.common.buffers import RolloutBuffer
 from stable_baselines3.common.callbacks import BaseCallback, CallbackList, ConvertCallback
@@ -74,7 +74,7 @@ class NLPO(OnPolicyAlgorithm):
         "CnnPolicy": CnnPolicy,
         "MultiInputPolicy": MultiInputPolicy,
     }
-
+    #epochs is the number of times the model will be required to be trained.
     def __init__(
         self,
         policy: Union[str, Type[MaskableActorCriticPolicy]],
